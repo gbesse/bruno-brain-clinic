@@ -76,12 +76,12 @@ def scan(root, today=None, lang="fr"):
             issues.append(item)
 
         if metadata is None:
-            issue("frontmatter_missing")
             metadata = {}
         elif metadata is False:
             issue("frontmatter_invalid")
             metadata = {}
-        if not metadata.get("sources") and not metadata.get("source"):
+        body_source = re.search(r"https?://[^\s)]+", body)
+        if not metadata.get("sources") and not metadata.get("source") and not body_source:
             issue("source_missing")
         if "stale_after" in metadata:
             expiry = parse_date(metadata["stale_after"])

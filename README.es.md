@@ -12,7 +12,7 @@ El directorio skills/brain-clinic contiene una habilidad reutilizable para ejecu
     python3 brain_clinic.py RUTA_EXPORTACION --lang es
     python3 -m unittest discover -s tests -v
 
-Los metadatos son YAML entre dos líneas --- al principio del archivo Markdown. Esta versión comprende sources o source, stale_after en formato YYYY-MM-DD, y los campos opcionales fact_key y fact_value para comparar hechos. El programa lee todos los archivos .md del directorio y genera JSON. Códigos de salida: 0 sin hallazgos, 2 revisión necesaria, 1 entrada no válida. Los mensajes están disponibles en francés, inglés y español.
+Cuando existen, los metadatos son YAML entre dos líneas --- al principio del archivo Markdown. Esta versión comprende sources o source, stale_after en formato YYYY-MM-DD, y los campos opcionales fact_key y fact_value para comparar hechos. Un enlace en el cuerpo también puede servir como fuente. El programa lee todos los archivos .md del directorio y genera JSON. Códigos de salida: 0 sin hallazgos, 2 revisión necesaria, 1 entrada no válida. Los mensajes están disponibles en francés, inglés y español.
 
 Bruno anuncia la exportación de su cerebro en Markdown u OKF. Este repositorio trabaja con archivos Markdown exportados; no se conecta a Bruno ni valida toda la especificación OKF. Solo detecta contradicciones identificadas explícitamente por fact_key, no discrepancias semánticas. Revise los hallazgos antes de corregirlos.
 

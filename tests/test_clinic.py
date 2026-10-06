@@ -33,6 +33,13 @@ class ClinicTests(unittest.TestCase):
             for lang in ("fr", "en", "es"):
                 self.assertEqual(scan(directory, today=dt.date(2026, 10, 6), lang=lang)["status"], "clean")
 
+    def test_plain_markdown_accepts_source_link(self):
+        with tempfile.TemporaryDirectory() as directory:
+            Path(directory, "note.md").write_text(
+                "Source: https://example.com/source\n\nA sourced note.\n", encoding="utf-8"
+            )
+            self.assertEqual(scan(directory, today=dt.date(2026, 10, 6))["status"], "clean")
+
 
 if __name__ == "__main__":
     unittest.main()
